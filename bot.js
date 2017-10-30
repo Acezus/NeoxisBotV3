@@ -17,7 +17,8 @@ client.on('message', (message) => {
 	if (message.author.bot) return; // Dont answer yourself.
     var args = message.content.split(/[ ]+/)
     if(isCommand('commands', message)){
-    	message.reply("**Commands:**", "**TESTING**")
+    	message.reply("**Commands:**
+		     Testing")
     }
   });
 
