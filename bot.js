@@ -13,13 +13,13 @@ function isCommand(command, message){
 	return content.startsWith(prefix + command);
 }
 
-client.on('message', (message) => {
-	if (message.author.bot) return; // Dont answer yourself.
-    var args = message.content.split(/[ ]+/)
-    if(isCommand('Hello', message)){
-    	message.reply("Move Along!")
-    }
-});
+ const cmdFiles = await readdir("./commands/");
+  client.log("log", `Loading a total of ${cmdFiles.length} commands.`);
+  cmdFiles.forEach(f => {
+    if (!f.endsWith(".js")) return;
+    const response = client.loadCommand(f);
+    if (response) console.log(response);
+  });
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
