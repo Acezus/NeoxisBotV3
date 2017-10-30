@@ -16,8 +16,8 @@ function isCommand(command, message){
 client.on('message', (message) => {
 	if (message.author.bot) return; // Dont answer yourself.
     var args = message.content.split(/[ ]+/)
-    if(isCommand('Hello', message)){
-    	message.reply("Move Along!")
+    if(isCommand('commands', message)){
+    	message.reply("**Commands:/n testing")
     }
   });
 
